@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-ink: 17 21 28;
+  --color-canvas: 247 247 245;
+  --color-line: 227 225 218;
+  --color-accent: 47 111 79;
+  --color-amber: 181 117 44;
+  --color-rust: 164 69 47;
+}
+
+:root[data-theme="dark"] {
+  --color-ink: 241 243 245;
+  --color-canvas: 15 17 21;
+  --color-line: 54 59 68;
+  --color-accent: 77 180 117;
+  --color-amber: 228 165 74;
+  --color-rust: 226 106 80;
+}
+
+body {
+  background-color: rgb(var(--color-canvas));
+  color: rgb(var(--color-ink));
+  background-image: radial-gradient(circle at 1px 1px, rgba(17, 21, 28, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+:root[data-theme="dark"] body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+}
+
+:root[data-theme="dark"] .bg-white {
+  background-color: rgb(21 25 32) !important;
+}
+
+:root[data-theme="dark"] .bg-white\/95 {
+  background-color: rgb(21 25 32 / 0.95) !important;
+}
+
+/* Perforated ticket-stub edge: the signature element. A row of punched
+   circles cut from the card's bottom edge, like a tear-off order docket. */
+.ticket-perf {
+  position: relative;
+}
+.ticket-perf::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 14px;
+  background-image: radial-gradient(circle 6px, rgb(var(--color-canvas)) 6px, transparent 6.5px);
+  background-size: 20px 14px;
+  background-repeat: repeat-x;
+  background-position: 4px 0;
+}
+
+/* Rotated rubber-stamp badge used for order status */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+}
+
+::selection {
+  background: #2f6f4f;
+  color: white;
+}
